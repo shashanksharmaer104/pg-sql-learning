@@ -10,3 +10,45 @@ SELECT COUNT(*), ROUND(AVG(replacement_cost), 2), MIN(replacement_cost), MAX(rep
 SELECT AVG(replacement_cost) FROM film;
 
 SELECT SUM(replacement_cost) FROM film;
+
+-- GROUP BY statement
+SELECT * FROM payment;
+
+SELECT customer_id FROM payment
+GROUP BY customer_id;
+
+SELECT customer_id, SUM(amount)
+FROM payment
+GROUP BY customer_id
+ORDER BY SUM(amount) DESC;
+
+SELECT customer_id, COUNT(amount)
+FROM payment
+GROUP BY customer_id
+ORDER BY COUNT(amount) DESC;
+
+SELECT customer_id, staff_id, SUM(amount)
+FROM payment
+GROUP BY staff_id, customer_id
+ORDER BY customer_id, staff_id
+
+SELECT DATE(payment_date), SUM(amount)
+FROM payment
+GROUP BY DATE(payment_date)
+ORDER BY SUM(amount) DESC
+
+SELECT * FROM payment
+
+SELECT staff_id, COUNT(*) 
+FROM payment
+GROUP BY staff_id;
+
+SELECT rating, ROUND(AVG(replacement_cost), 3)
+FROM film
+GROUP BY rating;
+
+SELECT customer_id, SUM(amount)
+FROM payment
+GROUP BY customer_id
+ORDER BY SUM(amount) DESC
+LIMIT 5;
