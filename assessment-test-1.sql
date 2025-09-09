@@ -13,6 +13,6 @@ WHERE title LIKE 'J%'
 --Exercise 3
 SELECT first_name, last_name
 FROM customer
-WHERE first_name LIKE 'E%' and address_id < 500
+WHERE first_name LIKE 'E%' AND address_id < 500
 ORDER BY address_id DESC
 LIMIT 1;
